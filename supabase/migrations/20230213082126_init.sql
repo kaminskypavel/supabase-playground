@@ -7,6 +7,7 @@ create type public.app_permission as enum ('channels.delete', 'messages.delete')
 create type public.app_role as enum ('admin', 'moderator');
 create type public.user_status as enum ('ONLINE', 'OFFLINE');
 
+
 -- USERS
 create table public.users (
   id          uuid not null primary key, -- UUID from auth.users
@@ -79,6 +80,7 @@ alter table public.channels enable row level security;
 alter table public.messages enable row level security;
 alter table public.user_roles enable row level security;
 alter table public.role_permissions enable row level security;
+
 create policy "Allow logged-in read access" on public.users for select using ( auth.role() = 'authenticated' );
 create policy "Allow individual insert access" on public.users for insert with check ( auth.uid() = id );
 create policy "Allow individual update access" on public.users for update using ( auth.uid() = id );
