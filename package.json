@@ -1,0 +1,25 @@
+{
+  "name": "supabase-slack-clone-basic",
+  "version": "0.1.1",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "export": "next export",
+    "build": "next build",
+    "start": "next start",
+    "supabase:start": "supabase start",
+    "supabase:stop": "supabase stop",
+    "supabase:types": "supabase gen types typescript --local > supabase.d.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^1.35.3",
+    "next": "latest",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "sass": "^1.26.2",
+    "tailwindcss": "^1.1.4"
+  },
+  "devDependencies": {
+    "supabase": "^1.38.0"
+  }
+}
