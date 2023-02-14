@@ -12,17 +12,30 @@
     "supabase:types": "supabase gen types typescript --local > supabase.d.ts",
     "supabase:serve-function": "supabase functions serve puppeteer  --no-verify-jwt --env-file ./supabase/.env",
     "supabase:call-function": "curl -i --location --request POST 'http://localhost:54321/functions/v1/' > out.png",
-    "psql": "psql -U postgres -h localhost -p 54322"
+    "psql": "psql -U postgres -h localhost -p 54322",
+    "prisma:pull": "prisma db pull",
+    "prisma:generate": "prisma generate",
+    "prisma:studio": "prisma studio"
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.35.3",
+    "@tanstack/react-query": "^4.24.6",
+    "@trpc/client": "^10.11.1",
+    "@trpc/next": "^10.11.1",
+    "@trpc/react-query": "^10.11.1",
+    "@trpc/server": "^10.11.1",
     "next": "latest",
+    "prisma": "^4.10.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "sass": "^1.26.2",
-    "tailwindcss": "^1.1.4"
+    "tailwindcss": "^1.1.4",
+    "zod": "^3.20.6"
   },
   "devDependencies": {
-    "supabase": "^1.38.0"
+    "@types/node": "18.13.0",
+    "@types/react": "18.0.28",
+    "supabase": "^1.38.0",
+    "typescript": "4.9.5"
   }
 }

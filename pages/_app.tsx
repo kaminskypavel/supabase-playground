@@ -1,10 +1,10 @@
 import '~/styles/style.scss'
-import React, { useState, useEffect } from 'react'
+import React, {useState, useEffect} from 'react'
 import Router from 'next/router'
-import UserContext from 'lib/UserContext'
-import { supabase, fetchUserRoles } from 'lib/Store'
+import UserContext from './../lib/UserContext'
+import {supabase, fetchUserRoles} from './../lib/Store'
 
-export default function SupabaseSlackClone({ Component, pageProps }) {
+export default function SupabaseSlackClone({Component, pageProps}) {
   const [userLoaded, setUserLoaded] = useState(false)
   const [user, setUser] = useState(null)
   const [session, setSession] = useState(null)
@@ -20,7 +20,7 @@ export default function SupabaseSlackClone({ Component, pageProps }) {
       Router.push('/channels/[id]', '/channels/1')
     }
 
-    const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
+    const {data: authListener} = supabase.auth.onAuthStateChange(async (event, session) => {
       setSession(session)
       const currentUser = session?.user
       setUser(currentUser ?? null)
