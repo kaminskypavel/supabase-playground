@@ -10,7 +10,9 @@
     "supabase:start": "supabase start",
     "supabase:stop": "supabase stop",
     "supabase:types": "supabase gen types typescript --local > supabase.d.ts",
-    "psql": " psql -U postgres -h localhost -p 54322"
+    "supabase:serve-function": "supabase functions serve puppeteer  --no-verify-jwt --env-file ./supabase/.env",
+    "supabase:call-function": "curl -i --location --request POST 'http://localhost:54321/functions/v1/' > out.png",
+    "psql": "psql -U postgres -h localhost -p 54322"
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.35.3",
