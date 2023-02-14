@@ -9,6 +9,7 @@
     "start": "next start",
     "supabase:start": "supabase start",
     "supabase:stop": "supabase stop",
+    "supabase:open": "open-cli http://localhost:54323/project/default",
     "supabase:types": "supabase gen types typescript --local > supabase.d.ts",
     "supabase:serve-function": "supabase functions serve puppeteer  --no-verify-jwt --env-file ./supabase/.env",
     "supabase:call-function": "curl -i --location --request POST 'http://localhost:54321/functions/v1/' > out.png",
@@ -18,6 +19,7 @@
     "prisma:studio": "prisma studio"
   },
   "dependencies": {
+    "@prisma/client": "^4.10.1",
     "@supabase/supabase-js": "^1.35.3",
     "@tanstack/react-query": "^4.24.6",
     "@trpc/client": "^10.11.1",
@@ -35,6 +37,7 @@
   "devDependencies": {
     "@types/node": "18.13.0",
     "@types/react": "18.0.28",
+    "open-cli": "^7.1.0",
     "supabase": "^1.38.0",
     "typescript": "4.9.5"
   }

@@ -26,15 +26,13 @@ export default function Layout(props) {
     }
   }
 
-  const testPrisma = async () => {
 
-    alert("asdasd12312312")
+  const { data, refetch, dataUpdatedAt } = trpc.getAll.useQuery({}, {
+    manaual: true,
 
+  });
 
-  }
-
-  const hello = trpc.hello.useQuery({ text: 'client' });
-  console.log(hello?.data);
+  console.log({ data, refetch });
   return (
     <main className="main flex h-screen w-screen overflow-hidden">
       {/* Sidebar */}
@@ -46,7 +44,7 @@ export default function Layout(props) {
           <div className="p-2">
             <button
               className="bg-green-600 hover:bg-green-600 text-white py-2 px-4 rounded w-full transition duration-150"
-              onClick={() => testPrisma()}
+              onClick={() => refetch()}
             >
               Test Prisma
             </button>

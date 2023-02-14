@@ -1,8 +1,9 @@
 import {z} from 'zod';
-import {procedure, router} from '../trpc';
+import {createTRPCRouter, publicProcedure, protectedProcedure} from "../trpc";
+import {supabase} from 'lib/Store';
 
-export const appRouter = router({
-    hello: procedure
+export const appRouter = createTRPCRouter({
+    hello: publicProcedure
         .input(
             z.object({
                 text: z.string(),
@@ -13,6 +14,14 @@ export const appRouter = router({
                 greeting: `hello ${input.text}`,
             };
         }),
+
+    getAll: publicProcedure.query(async ({ctx}) => {
+        const {supabase} = ctx;
+        const result = await supabase.from('users').select('*');
+        // console.log({ctx});
+        return {result};
+    }),
+
 });
 
 // export type definition of API
