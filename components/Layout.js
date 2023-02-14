@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import UserContext from '~/lib/UserContext'
 import { addChannel, deleteChannel } from '~/lib/Store'
 import TrashIcon from '~/components/TrashIcon'
+import { trpc } from '../utils/trpc';
 
 export default function Layout(props) {
   const { signOut, user, userRoles } = useContext(UserContext)
@@ -25,14 +26,32 @@ export default function Layout(props) {
     }
   }
 
+  const testPrisma = async () => {
+
+    alert("asdasd12312312")
+
+
+  }
+
+  const hello = trpc.hello.useQuery({ text: 'client' });
+  console.log(hello?.data);
   return (
     <main className="main flex h-screen w-screen overflow-hidden">
       {/* Sidebar */}
       <nav
-        className="w-64 bg-gray-900 text-gray-100 overflow-scroll "
+        className="w-64 bg-gray-900 text-gray-100 overflow-scroll"
         style={{ maxWidth: '20%', minWidth: 150, maxHeight: '100vh' }}
       >
-        <div className="p-2 ">
+        <div className="p-2">
+          <div className="p-2">
+            <button
+              className="bg-green-600 hover:bg-green-600 text-white py-2 px-4 rounded w-full transition duration-150"
+              onClick={() => testPrisma()}
+            >
+              Test Prisma
+            </button>
+          </div>
+
           <div className="p-2">
             <button
               className="bg-blue-900 hover:bg-blue-800 text-white py-2 px-4 rounded w-full transition duration-150"

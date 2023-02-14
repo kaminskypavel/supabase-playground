@@ -11,13 +11,13 @@ const Message = ({ message }) => {
       <div className="text-gray-100 w-4">
         {(user?.id === message.user_id ||
           userRoles.some((role) => ['admin', 'moderator'].includes(role))) && (
-          <button onClick={() => deleteMessage(message.id)}>
-            <TrashIcon />
-          </button>
-        )}
+            <button onClick={() => deleteMessage(message.id)}>
+              <TrashIcon />
+            </button>
+          )}
       </div>
       <div>
-        <p className="text-blue-700 font-bold">{message.author.username}</p>
+        <p className="text-blue-700 font-bold">{message?.author?.username}</p>
         <p className="text-white">{message.message}</p>
       </div>
     </div>
